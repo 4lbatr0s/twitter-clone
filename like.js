@@ -1,6 +1,8 @@
+const Tweet = require('./tweet');
+
 module.exports = class Like{
     constructor(user, tweet){
         this.user = user;
-        this.tweet = tweet;
+        this.tweet = Tweet.createDate();
     }
 }
