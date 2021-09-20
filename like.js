@@ -1,3 +1,6 @@
 module.exports = class Like{
-    constructor(){}
+    constructor(user, tweet){
+        this.user = user;
+        this.tweet = tweet;
+    }
 }

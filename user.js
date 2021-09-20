@@ -1,16 +1,28 @@
+const Like = require("./like");
+const Mention = require("./mention");
 const Tweet = require("./tweet");
 
 module.exports = class User{
     constructor(userName){
         this.userName = userName;
-        this.context = context;
         this.tweets = [];
         this.likes = [];
+        this.mentions = [];
     }
     tweet(context){ 
-        this.tweets.push(new Tweet(this.userName, context));
+       const tweeted = new Tweet(this, context);
+       this.tweets.push(tweeted);
     }
+
     like(tweet){
-        
+        const liked = new Like(this, tweet);
+        this.likes.push(liked);
+        tweet.likes.push(this);
+    }
+
+    mention(tweet, context){
+        const newMent = new Mention(this, tweet, context);
+        this.mentions.push(newMent);
+        tweet.mentions.push(newMent);
     }
 }
