@@ -10,10 +10,8 @@ const Rose = new User('CarnageFlower');
 Michael.tweet('Hello Twitter, this is my first  tweet.');
 Rose.tweet('Boring..');
 
-console.log(Michael.likes, Michael.tweets);
-console.log(Rose.likes, Rose.tweets);
-
 Rose.like(Michael.tweets[0]);
 
-console.log(Michael.likes, Michael.tweets);
-console.log(Rose.likes, Rose.tweets);
+Rose.mention(Michael.tweets[0], "Hello Michael, welcome to Twitter.");
+
+console.log(Michael.tweets[0].mentions);

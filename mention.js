@@ -1,10 +1,12 @@
-const User = require('./user');
+const Tweet = require('./tweet');
 
-module.exports = class Mention{
-    constructor(user, tweet, context){
-        this.user = user;
-        this.tweet = tweet;
-        this.context = context;
-        this.date = User.date();
+
+module.exports = class Mention extends Tweet{
+    
+    
+    constructor(user,context, tweet){
+        super(user, context); 
+        this.mentionContext = tweet;
+        this.mentions = [];
     }
 };
