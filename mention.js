@@ -5,7 +5,7 @@ module.exports = class Mention extends Tweet{
     
     
     constructor(user,context, tweet){
-        super(user, context); 
+        super(user, context.context); 
         this.mentionContext = tweet;
         this.mentions = [];
     }

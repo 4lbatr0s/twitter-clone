@@ -16,9 +16,9 @@ module.exports = class Tweet{
     }
 
     constructor(user,context){
-        this.user= user;
-        this.likes = [];
-        this.mentions = [];
+        this.user= user.userName;
+        this.likedBy = [];
+        this.mentionedBy = [];
         this.context = context;
         this.date = this.createDate();
     }

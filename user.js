@@ -19,14 +19,14 @@ module.exports = class User{
     like(tweet){
         const liked = new Like(this, tweet);
         this.likes.push(liked);
-        tweet.likes.push(this);
-        console.log(`${this.userName} liked  ${tweet.user.userName}'s  "${tweet.context}" tweet`);
+        tweet.likedBy.push(this);
+        console.log(`${this.userName} liked  ${tweet.user}'s  "${tweet.context}" tweet`);
     }
 
     mention(tweet, context){
         const newMent = new Mention(this, tweet, context);
         this.mentions.push(newMent);
-        tweet.mentions.push(newMent);
-        console.log(`${this.userName} responded  ${tweet.user.userName}'s  "${tweet.context}" tweet  --> "${newMent.mentionContext}"`);
+        tweet.mentionedBy.push(this);
+        console.log(`${this.userName} responded  ${tweet.user}'s  "${tweet.context}" tweet  --> "${newMent.mentionContext}"`);
     }
 }
